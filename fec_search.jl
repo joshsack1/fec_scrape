@@ -1,4 +1,4 @@
-using HTTP, Gumbo, Cascadia, CSV
+using HTTP, Gumbo, Cascadia, CSV, DataFrames
 
 #Pull Initial Data
 #Set url
