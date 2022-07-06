@@ -6,7 +6,7 @@ url = "https://docquery.fec.gov/cgi-bin/forms/C00213512/1585746/"
 #Request html
 request = HTTP.get(url)
 #Parse HTLM
-h = parsehtlm(String(request.body))
+h = parsehtml(String(request.body))
 
 #Start pulling useful information
 file_date_raw = h.root[2][5][20]
@@ -40,3 +40,5 @@ form_3_22 = detailed[2][32]
 
 #Cash on Hand
 form_3_27 = detailed[2][38]
+
+# Create tables for Export
