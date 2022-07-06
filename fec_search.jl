@@ -44,7 +44,7 @@ form_3_27 = detailed[2][38]
 #Period Summary
 period_raised_string = form_3_11e[2][1].text
 period_raised_float = parse(Float64,period_raised_string)
-period_spent_string = form_3_22[2][1]
+period_spent_string = form_3_22[2][1].text
 period_spent_float = parse(Float64,period_spent_string)
 period_unitemized_donations_string = form_3_11a_ii[2][1].text
 period_loans = form_3_13c[2][1].text
@@ -69,6 +69,7 @@ CSV.write("Most_Recent_Campaign_Finance_Numbers.csv", period_summary)
 #Total Summary
 total_raised_string = form_3_11e[3][1].text
 total_raised_float = parse(Float64, total_raised_string)
+total_spent_string = form_3_22[3][1].text
 total_spent_float = parse(Float64,total_spent_string)
 total_unitemized_donations_string = form_3_11a_ii[3][1].text
 total_loans = form_3_13c[3][1].text
