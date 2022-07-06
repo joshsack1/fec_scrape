@@ -10,3 +10,4 @@ h = parsehtlm(String(r.body))
 
 #Start pulling useful information
 file_date_raw = h.root[2][5][20]
+ summary_page = h.root[2][5][30]
