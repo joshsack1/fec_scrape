@@ -58,12 +58,12 @@ period_small_dollar_rate_string = string(period_small_dollar_rate_float) * "%"
 period_coh = form_3_27[2][1].text
 #Create DataFrame for CSV Export
 period_summary = DataFrame()
-period_summary.Raised = period_raised_string
-period_summary.Spent = period_spent_string
-period_summary.Loans = period_loans
-period_summary.Burn_Rate = period_burn_rate_string
-period_summary.Unitemized_Rate = period_small_dollar_rate_string
-period_summary.Cash_on_Hand = period_coh
+period_summary.Raised = ["Period Raised", period_raised_string]
+period_summary.Spent = ["Period Spent", period_spent_string]
+period_summary.Loans = ["Period Loans", period_loans]
+period_summary.Burn_Rate = ["Period Burn Rate", period_burn_rate_string]
+period_summary.Unitemized_Rate = ["Period % Unitemized Donations", period_small_dollar_rate_string]
+period_summary.Cash_on_Hand = ["Period Cash on Hand", period_coh]
 CSV.write("Most_Recent_Campaign_Finance_Numbers.csv", period_summary)
 
 #Total Summary
@@ -83,10 +83,10 @@ total_small_dollar_rate_string = string(total_small_dollar_rate_float) * "%"
 total_coh = form_3_27[3][1].text
 #Create DataFrame for CSV Export
 total_summary = DataFrame()
-total_summary.Raised = total_raised_string
-total_summary.Spent = total_spent_string
-total_summary.Loans = total_loans
-total_summary.Burn_Rate = total_burn_rate_string
-total_summary.Unitemized_Rate = total_small_dollar_rate_string
-total_summary.Cash_on_Hand = total_coh
+total_summary.Raised = ["Total Raised", total_raised_string]
+total_summary.Spent = ["Total Spent", total_spent_string]
+total_summary.Loans = ["Total Loans", total_loans]
+total_summary.Burn_Rate = ["Overall Burn Rate", total_burn_rate_string]
+total_summary.Unitemized_Rate = ["% Unitemized Donations", total_small_dollar_rate_string]
+total_summary.Cash_on_Hand = ["Cash on Hand", total_coh]
 CSV.write("Total_Campaign_Finance_Numbers.csv", period_summary)
