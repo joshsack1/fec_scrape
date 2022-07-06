@@ -53,9 +53,10 @@ period_burn_rate_float = round(period_burn_rate_float, digits = 2)
 period_burn_rate_string = string(period_burn_rate_float)*"%"
 period_unitemized_donations_float = parse(Float64, period_unitemized_donations_string)
 period_small_dollar_rate_float = 100.0*(period_unitemized_donations_float/period_raised_float)
-period_small_dollar_rate_float = round(small_dollar_rate_float, digits =  2)
-period_small_dollar_rate_string = string(small_dollar_rate_float) * "%"
+period_small_dollar_rate_float = round(period_small_dollar_rate_float, digits =  2)
+period_small_dollar_rate_string = string(period_small_dollar_rate_float) * "%"
 period_coh = form_3_27[2][1].text
+#Create DataFrame for CSV Export
 period_summary = DataFrame()
 period_summary.Raised = period_raised_string
 period_summary.Spent = period_spent_string
@@ -64,6 +65,27 @@ period_summary.Burn_Rate = period_burn_rate_string
 period_summary.Unitemized_Rate = period_small_dollar_rate_string
 period_summary.Cash_on_Hand = period_coh
 CSV.write("Most_Recent_Campaign_Finance_Numbers.csv", period_summary)
+
 #Total Summary
 total_raised_string = form_3_11e[3][1].text
 total_raised_float = parse(Float64, total_raised_string)
+total_spent_float = parse(Float64,total_spent_string)
+total_unitemized_donations_string = form_3_11a_ii[3][1].text
+total_loans = form_3_13c[3][1].text
+total_burn_rate_float = 100.0*(total_spent_float/total_raised_float)
+total_burn_rate_float = round(total_burn_rate_float, digits = 2)
+total_burn_rate_string = string(total_burn_rate_float)*"%"
+total_unitemized_donations_float = parse(Float64, total_unitemized_donations_string)
+total_small_dollar_rate_float = 100.0*(total_unitemized_donations_float/total_raised_float)
+total_small_dollar_rate_float = round(total_small_dollar_rate_float, digits =  2)
+total_small_dollar_rate_string = string(total_small_dollar_rate_float) * "%"
+total_coh = form_3_27[3][1].text
+#Create DataFrame for CSV Export
+total_summary = DataFrame()
+total_summary.Raised = total_raised_string
+total_summary.Spent = total_spent_string
+total_summary.Loans = total_loans
+total_summary.Burn_Rate = total_burn_rate_string
+total_summary.Unitemized_Rate = total_small_dollar_rate_string
+total_summary.Cash_on_Hand = total_coh
+CSV.write("Total_Campaign_Finance_Numbers.csv", period_summary)
